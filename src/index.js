@@ -10,13 +10,13 @@ import './index.css';
 
 // }
 
-let x = prompt('Insert 1st player Letter:');
-let o = prompt('Insert 2nd player Letter:');
+let x = prompt('Insert 1st player Marker (ok to use short name):');
+let o = prompt('Insert 2nd player Marker (ok to use short name):');
 x = x.slice(0, 5);
 o = o.slice(0, 5);
 
 if (x === o) {
-  alert('Gotta have two different letters');
+  alert('Really, same markers?');
   window.location.reload();
 }
 
@@ -92,11 +92,11 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = `E o ganhador é: ${winner}!!!`;
+      status = `And the winner is: ${winner}!!!`;
     } else if (squares.includes(null)) {
-      status = `Próximo Jogador: ${this.state.xIsNext ? `${x}` : `${o}`}.`;
+      status = `Next Player: ${this.state.xIsNext ? `${x}` : `${o}`}.`;
     } else {
-      alert('Deu empate, vamos jogar de novo?');
+      alert("We have a draw, let's play again?");
       window.location.reload();
     }
 
